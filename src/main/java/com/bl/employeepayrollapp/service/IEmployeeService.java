@@ -12,11 +12,11 @@ public interface IEmployeeService {
 
 	List<EmployeeModel> getEmpData(String token);
 
-	EmployeeModel deleteEmployee(Long id);
+	EmployeeModel deleteEmployee(Long id,String token);
 
 	Response login(String email, String password);
 
-	EmployeeModel updateemployee(EmployeeDTO employeeDTO, long id, Long departmentId);
+	EmployeeModel updateemployee(EmployeeDTO employeeDTO, long id, Long departmentId,String token);
 	
 	Optional<EmployeeModel> getEmpById(Long id);
 	

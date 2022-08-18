@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestHeader;
+
 import com.bl.employeepayrollapp.dto.EmployeeDTO;
 import com.bl.employeepayrollapp.exception.EmployeeNotFoundException;
 import com.bl.employeepayrollapp.model.DepartmentModel;
@@ -46,7 +48,7 @@ public class EmployeeService implements IEmployeeService{
 
 
 	@Override
-	public EmployeeModel updateemployee(EmployeeDTO employeeDTO, long id,Long departmentId) {
+	public EmployeeModel updateemployee(EmployeeDTO employeeDTO, long id,Long departmentId,String token) {
 		Optional<DepartmentModel> isDepartment = departmentRepository.findById(departmentId);
 		if (isDepartment.isPresent()) {
 			Optional<EmployeeModel> isEmployeePresent = employeeRepository.findById(id);
@@ -86,7 +88,7 @@ public class EmployeeService implements IEmployeeService{
 	}
 
 	@Override
-	public EmployeeModel deleteEmployee(Long id) {
+	public EmployeeModel deleteEmployee(Long id,String token) {
 		Optional<EmployeeModel> isEmployeePresent=employeeRepository.findById(id);
 		if(isEmployeePresent.isPresent()){
 			employeeRepository.delete(isEmployeePresent.get());

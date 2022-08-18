@@ -29,6 +29,5 @@ public class DepartmentModel {
 	public DepartmentModel(DepartmentDTO dto) {
 		this.departmentName = dto.getDepartmentName();
 		this.departmentemail = dto.getDepartmentemail();
-
 	}
 }

@@ -36,6 +36,7 @@ public class DepartmentService implements IDepartmentService {
 			throw new EmployeeNotFoundException(400, "Department is not found with this ID");
 		}
 	}
+
 	@Override
 	public List<DepartmentModel> getAllDepartments() {
 		List<DepartmentModel> isDepartmentPresent = departmentRepository.findAll();
@@ -52,7 +53,8 @@ public class DepartmentService implements IDepartmentService {
 		if ( isDepartmentIdPresent.isPresent()) {
 			departmentRepository.delete( isDepartmentIdPresent.get());
 			return  isDepartmentIdPresent.get();
-		} else {
+		} 
+		else {
 			throw new EmployeeNotFoundException(400, "Department is not found");
 		}
 	}

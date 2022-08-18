@@ -2,9 +2,7 @@ package com.bl.employeepayrollapp.controller;
 
 import java.util.List;
 import java.util.Optional;
-
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,8 +31,8 @@ public class EmployeeController {
     }
     
     @PutMapping("/updateemployee/{id}")
-    public EmployeeModel updateemployee(@RequestBody EmployeeDTO employeeDTO,@PathVariable long id,@RequestParam Long departmentId){
-        return employeeService.updateemployee(employeeDTO,id,departmentId);
+    public EmployeeModel updateemployee(@RequestBody EmployeeDTO employeeDTO,@PathVariable long id,@RequestParam Long departmentId,@RequestHeader String token){
+        return employeeService.updateemployee(employeeDTO,id,departmentId,token);
     }
     
     @GetMapping("/getEmployeedata")
@@ -43,8 +41,8 @@ public class EmployeeController {
     }
 
     @DeleteMapping("/deleteemployee/{id}")
-    public EmployeeModel deleteemployee(@PathVariable Long id){
-        return employeeService.deleteEmployee(id);
+    public EmployeeModel deleteemployee(@PathVariable Long id,@RequestHeader String token){
+        return employeeService.deleteEmployee(id,token);
     }
     
     @GetMapping("/getemployeebyid/{id}")

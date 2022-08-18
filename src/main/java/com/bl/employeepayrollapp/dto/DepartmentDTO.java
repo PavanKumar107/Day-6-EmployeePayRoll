@@ -1,7 +1,5 @@
 package com.bl.employeepayrollapp.dto;
-
 import java.time.LocalDateTime;
-
 import lombok.Data;
 
 @Data

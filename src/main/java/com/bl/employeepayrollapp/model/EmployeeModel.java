@@ -32,7 +32,6 @@ public class EmployeeModel {
 	private DepartmentModel department;
 	private String emailId;
 	private String password;
-	
 
 	public EmployeeModel(EmployeeDTO employeeDto) {
 		this.firstName = employeeDto.getFirstName();
